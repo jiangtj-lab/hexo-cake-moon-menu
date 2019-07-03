@@ -1,0 +1,22 @@
+{
+  "name": "hexo-cake-moon-menu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiangtj-lab/hexo-cake-moon-menu.git"
+  },
+  "author": "Mr.J",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jiangtj-lab/hexo-cake-moon-menu/issues"
+  },
+  "homepage": "https://github.com/jiangtj-lab/hexo-cake-moon-menu#readme",
+  "dependencies": {
+    "hexo-cake-utils": "^1.0.0"
+  }
+}

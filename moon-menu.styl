@@ -1,0 +1,67 @@
+
+$moon-menu-button=4rem
+
+.moon-menu,.moon-menu-text {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: $moon-menu-button;
+  height: $moon-menu-button;
+  //background-color: #000;
+}
+
+.moon-menu-svg,.moon-menu-button {
+  width: $moon-menu-button;
+  height: $moon-menu-button;
+}
+.moon-menu-button {
+  cursor: pointer;
+}
+.moon-menu-cricle {
+  fill: #607d8b;
+  opacity: .9;
+}
+.moon-menu-border {
+  stroke: #607d8b;
+  opacity: .9;
+  stroke-width: 1px;
+  fill: none;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.moon-menu-points {
+  transform: translate3d($moon-menu-button/2,$moon-menu-button/2,0);
+}
+.moon-menu-point {
+  fill: white;
+  transition: all .15s cubic-bezier(0,0,.382,1.618)
+}
+
+.moon-menu-text {
+  color: white;
+  font-weight: 400;
+  text-align: center;
+  line-height: $moon-menu-button;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.moon-menu-item {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #000;
+  opacity: 0;
+  display: block;
+  //display: none;
+  transition: all .3s cubic-bezier(0,0,.382,1.618);
+  z-index: -1;
+  text-align: center;
+  line-height: 2.5rem;
+  color: white;
+  cursor: pointer;
+}
