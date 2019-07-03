@@ -19,7 +19,7 @@ moon_menu:
     enable: true
 ```
 
-In `math.yml` data file:
+In `moon_menu.yml` data file:
 ```yml
 back2top:
   enable: true
