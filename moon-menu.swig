@@ -84,16 +84,13 @@ const moonMenuClick = function () {
 };
 
 const back2top = () => {
-  //document.documentElement.scrollTop = 0;
-  $.isFunction($('html').velocity) ? $('body').velocity('scroll') : $('html, body').animate({ scrollTop: 0 });
+  $('html, body').animate({ scrollTop: 0 });
 }
 
 const back2bottom = () => {
   let offsetHeight =document.documentElement.offsetHeight;
   let scrollHeight =document.documentElement.scrollHeight;
-  console.log((scrollHeight - offsetHeight));
-  //document.documentElement.scrollTop = (scrollHeight - offsetHeight);
-  $('body').velocity('scroll', { offset: (scrollHeight - offsetHeight) });
+  $('html, body').animate({ scrollTop: (scrollHeight - offsetHeight) });
 }
 
 </script>
