@@ -1,10 +1,9 @@
 # hexo-cake-moon-menu
 
-## Support
+This plugin from [hexo-theme-inside](https://github.com/ike-c/hexo-theme-inside), thank ike-c.
+
 [![Theme](https://img.shields.io/badge/Theme-NexT(Pisces&Gemini):7.3.0-blue.svg)](https://theme-next.org)
 [![Theme](https://img.shields.io/badge/Theme-Cake:1.1.0-blue.svg)](https://github.com/jiangtj/hexo-theme-cake)
-
-This plugin from [hexo-theme-inside](https://github.com/ike-c/hexo-theme-inside), thank ike-c.
 
 ## How to use
 ```bash
