@@ -41,11 +41,11 @@ Here's an example about add gitter sidecar.
 1. Add custom head
 ```js
 hexo.extend.filter.register('theme_inject', function(injects) {
-  injects.head.file('custom', 'views/head.swig', {}, {cache: true});
+  injects.head.file('sidecar', 'views/sidecar.swig', {}, {cache: true});
 });
 ```
 
-2. In `views/head.swig`, create custom function
+2. In `views/sidecar.swig`, create custom function
 ```html
 <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
 <script>
