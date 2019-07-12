@@ -5,6 +5,12 @@ This plugin from [hexo-theme-inside](https://github.com/ike-c/hexo-theme-inside)
 [![Theme](https://img.shields.io/badge/Theme-NexT(Pisces&Gemini):7.3.0-blue.svg)](https://theme-next.org)
 [![Theme](https://img.shields.io/badge/Theme-Cake:1.1.0-blue.svg)](https://github.com/jiangtj/hexo-theme-cake)
 
+# Preview
+![image](https://user-images.githubusercontent.com/15902347/61098652-41f0ee80-a492-11e9-9c75-bb8fad0aa058.png)
+![image](https://user-images.githubusercontent.com/15902347/61098668-51703780-a492-11e9-984c-a17c1509a4c6.png)
+![image](https://user-images.githubusercontent.com/15902347/61098577-1110b980-a492-11e9-930e-cd0c677f7714.png)
+![image](https://user-images.githubusercontent.com/15902347/61098595-1ff76c00-a492-11e9-8c66-0a702b390961.png)
+
 ## How to use
 ```bash
 yarn add hexo-cake-moon-menu
