@@ -6,6 +6,8 @@ This plugin from [hexo-theme-inside](https://github.com/ike-c/hexo-theme-inside)
 [![Theme](https://img.shields.io/badge/Theme-NexT(Pisces&Gemini):7.3.0-blue.svg)](https://theme-next.org)
 [![Theme](https://img.shields.io/badge/Theme-Cake:1.1.0-blue.svg)](https://github.com/jiangtj/hexo-theme-cake)
 
+Want to use in muse/mist see [moon-menu-for-muse-mist-example](https://github.com/jiangtj-lab/moon-menu-for-muse-mist-example)
+
 # Preview
 ![image](https://user-images.githubusercontent.com/15902347/61098652-41f0ee80-a492-11e9-9c75-bb8fad0aa058.png)
 ![image](https://user-images.githubusercontent.com/15902347/61098668-51703780-a492-11e9-984c-a17c1509a4c6.png)
