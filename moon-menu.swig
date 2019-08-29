@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<script defer>
+<script>
 
 const moonMenuListener = function () {
 
@@ -84,13 +84,13 @@ const moonMenuClick = function () {
 };
 
 const back2top = () => {
-  $('html, body').animate({ scrollTop: 0 });
+  window.scroll({top: 0, behavior: 'smooth'});
 }
 
 const back2bottom = () => {
   let offsetHeight =document.documentElement.offsetHeight;
   let scrollHeight =document.documentElement.scrollHeight;
-  $('html, body').animate({ scrollTop: (scrollHeight - offsetHeight) });
+  window.scroll({top: (scrollHeight - offsetHeight), behavior: 'smooth'});
 }
 
 </script>
