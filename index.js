@@ -3,7 +3,10 @@ const utils = require('hexo-cake-utils')(hexo, __dirname);
 
 hexo.extend.filter.register('theme_inject', function(injects) {
 
-  hexo.theme.config.back2top.enable = false;
+  let back2top = hexo.theme.config.back2top
+  if (back2top) {
+    back2top.enable = false;
+  }
 
   let moonMenu = utils.defaultConfigFile('moon_menu', 'default.yaml');
   let moonMenuArr = Object.keys(moonMenu)
