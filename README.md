@@ -88,4 +88,4 @@ moon_menu:
 
 ## Note
 
-If you've come here from my post, check out the [1.x](tree/1.x) branch code.
+If you've come here from my post, check out the [1.x](https://github.com/jiangtj-lab/hexo-cake-moon-menu/tree/1.x) branch code.
