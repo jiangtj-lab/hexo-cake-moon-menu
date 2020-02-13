@@ -25,16 +25,17 @@ yarn add hexo-cake-moon-menu
 In hexo `_config.yml` (here is default config, if don't change it, nothing need to append)
 
 ```yml
-back2top:
-  enable: true
-  icon: fa fa-chevron-up
-  func: back2top
-  order: -1
-back2bottom:
-  enable: true
-  icon: fa fa-chevron-down
-  func: back2bottom
-  order: -2
+moon_menu:
+  back2top:
+    enable: true
+    icon: fa fa-chevron-up
+    func: back2top
+    order: -1
+  back2bottom:
+    enable: true
+    icon: fa fa-chevron-down
+    func: back2bottom
+    order: -2
 ```
 
 ## Custom
