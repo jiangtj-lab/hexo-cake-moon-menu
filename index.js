@@ -1,27 +1,40 @@
+const path = require('path');
+const { Cache } = require('hexo-util');
+const injector = require(' hexo-extend-injector2')(hexo);
+const ejs = require('ejs');
 
-const utils = require('hexo-cake-utils')(hexo, __dirname);
+const cache = new Cache();
 
-hexo.extend.filter.register('theme_inject', function(injects) {
-
-  let back2top = hexo.theme.config.back2top
-  if (back2top) {
-    back2top.enable = false;
+let config = Object.assign({
+  back2top: {
+    enable: true,
+    icon: 'fa fa- chevron - up',
+    func: 'back2top',
+    order: -1,
+  },
+  back2bottom: {
+    enable: true,
+    icon: 'fa fa- chevron - down',
+    func: 'back2bottom',
+    order: '-2',
   }
+}, hexo.config.moon_menu)
 
-  let moonMenu = utils.defaultConfigFile('moon_menu', 'default.yaml');
-  let moonMenuArr = Object.keys(moonMenu)
-    .map(key => moonMenu[key])
-    .map(item => {
-      item.order = item.order || 0;
-      if (item.enable === undefined) {
-        item.enable = true;
-      }
-      return item;
-    })
-    .filter(item => item.enable)
-    .sort((a, b) => a.order - b.order);
-  
-  injects.bodyEnd.file('moon-menu', utils.getFilePath('moon-menu.swig'), {menus: moonMenuArr}, {cache: true, only: true});
-  injects.style.push(utils.getFilePath('moon-menu.styl'));
+let moonMenuArr = Object.keys(config)
+  .map(key => moonMenu[key])
+  .map(item => {
+    item.order = item.order || 0;
+    if (item.enable === undefined) {
+      item.enable = true;
+    }
+    return item;
+  })
+  .filter(item => item.enable)
+  .sort((a, b) => a.order - b.order);
 
+injector.register('style', path.join(__dirname, 'moon-menu.styl'));
+injector.register('bodyEnd', () => {
+  return cache.apply('cache', () => {
+    return ejs.render(template, { menus: moonMenuArr });
+  })
 });

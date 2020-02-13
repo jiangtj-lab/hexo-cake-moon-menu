@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/jiangtj-lab/hexo-cake-moon-menu#readme",
   "dependencies": {
-    "hexo-cake-utils": "^1.0.0"
+    "ejs": "^3.0.1",
+    "hexo-extend-injector2": "^0.1.3",
+    "hexo-util": "^1.8.1"
   }
 }
