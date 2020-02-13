@@ -41,14 +41,21 @@ It's easy to add new button in `moon-menu`.
 
 Here's an example about add gitter sidecar.
 
-1. Add custom head
+1.  In `${hexo-dir}/scripts/any.js`, Add custom head
 ```js
-hexo.extend.filter.register('theme_inject', function(injects) {
-  injects.head.file('sidecar', 'views/sidecar.swig', {}, {cache: true});
+const fs = require('fs');
+const path = require('path');
+const injector = require('hexo-extend-injector2')(hexo);
+const { Cache } = require('hexo-util');
+const cache = new Cache();
+injector.register('head_end', () => {
+  return cache.apply('gitter', () => {
+    return fs.readFileSync(path.resolve(hexo.base_dir, 'views/gitter.html'), 'utf8');
+  });
 });
 ```
 
-2. In `views/sidecar.swig`, create custom function
+2. In `${hexo-dir}/views/sidecar.swig`, create custom function
 ```html
 <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
 <script>
