@@ -96,25 +96,23 @@ If you're not a user of the NexT or Cake theme, don't worry, you can still use t
 You need to configure some for the [hexo-extend-injector2](https://github.com/jiangtj/hexo-extend-injector2) plugin.
 
 - [environmental requirements](https://github.com/jiangtj/hexo-extend-injector2/issues/5)
-- load stylus injector
+- config stylus renderer, if theme don't support stylus helper.
 - add fontawesome, if not exist.
 
 Here are the actions for the default theme
 
+Add config
+```yml
+injector2:
+  stylus:
+    enable: true
+```
+
 In `${hexo-or-theme-dir}/scripts/any.js`
 ```js
 const injector = require('hexo-extend-injector2')(hexo);
-// load stylus injector
-injector.loadStylusPlugin();
 // add fontawesome
 injector.register('head-end', {
   value: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" crossorigin="anonymous">'
 });
 ```
-
-Append some to `${theme-dir}/source/css/style.styl` (This may not be needed in the future, see [this plan](https://github.com/jiangtj/hexo-extend-injector2/issues/4))
-```styl
-injector("style")
-```
-
-
