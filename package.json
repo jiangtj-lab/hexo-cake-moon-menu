@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "assets",
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jiangtj-lab/hexo-cake-moon-menu.git"
@@ -18,7 +22,11 @@
   "homepage": "https://github.com/jiangtj-lab/hexo-cake-moon-menu#readme",
   "dependencies": {
     "ejs": "^3.0.1",
-    "hexo-extend-injector2": "^0.1.4",
+    "hexo-extend-injector2": "^0.1.6",
     "hexo-util": "^1.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-hexo": "^4.1.0"
   }
 }

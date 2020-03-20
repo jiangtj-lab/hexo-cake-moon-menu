@@ -1,6 +1,7 @@
+/* global hexo */
 'use strict';
 
-const path = require('path');
+const { join } = require('path');
 const fs = require('fs');
 const { Cache } = require('hexo-util');
 const injector = require('hexo-extend-injector2')(hexo);
@@ -8,22 +9,22 @@ const ejs = require('ejs');
 
 const cache = new Cache();
 
-let config = Object.assign({
+const config = Object.assign({
   back2top: {
     enable: true,
     icon: 'fa fa-chevron-up',
     func: 'back2top',
-    order: -1,
+    order: -1
   },
   back2bottom: {
     enable: true,
     icon: 'fa fa-chevron-down',
     func: 'back2bottom',
-    order: '-2',
+    order: '-2'
   }
-}, hexo.config.moon_menu)
+}, hexo.config.moon_menu);
 
-let moonMenuArr = Object.keys(config)
+const moonMenuArr = Object.keys(config)
   .map(key => config[key])
   .map(item => {
     item.order = item.order || 0;
@@ -35,10 +36,10 @@ let moonMenuArr = Object.keys(config)
   .filter(item => item.enable)
   .sort((a, b) => a.order - b.order);
 
-injector.register('style', path.join(__dirname, 'moon-menu.styl'));
+injector.register('style', join(__dirname, 'assets/moon-menu.styl'));
 injector.register('bodyEnd', () => {
   return cache.apply('cache', () => {
-    let template = fs.readFileSync(path.join(__dirname, 'moon-menu.ejs')).toString();
+    const template = fs.readFileSync(join(__dirname, 'assets/moon-menu.ejs')).toString();
     return ejs.render(template, { menus: moonMenuArr });
-  })
+  });
 });
