@@ -2,7 +2,7 @@
   <div class="moon-menu-items">
     <% menus.forEach(item => { %>
     <div class="moon-menu-item" onclick="<%= item.func %>()">
-      <i class="<%= item.icon %>"></i>
+      <%- item.icon -%>
     </div>
     <% }); %>
   </div>
@@ -22,75 +22,3 @@
     </div>
   </div>
 </div>
-
-<script>
-
-  const moonMenuListener = function () {
-
-    //Get scroll percent
-    let offsetHeight = document.documentElement.offsetHeight;
-    let scrollHeight = document.documentElement.scrollHeight;
-    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
-    if (percent > 100) percent = 100;
-
-    let menuText = document.querySelector('.moon-menu-text');
-    let menuPoints = document.querySelector('.moon-menu-points');
-    if (!percent) {
-      percent = 0;
-      menuText.style.display = 'none';
-      menuPoints.style.display = 'block';
-    } else {
-      menuText.style.display = 'block';
-      menuPoints.style.display = 'none';
-      menuText.innerHTML = percent + '%';
-    }
-
-    //Update strokeDasharray
-    let length = 196;
-    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
-
-  }
-
-  window.addEventListener('load', () => {
-    moonMenuListener();
-  });
-  window.addEventListener('scroll', moonMenuListener);
-
-  const moonMenuClick = function () {
-    let items = document.querySelector('.moon-menu-items')
-    items.classList.toggle('active');
-    let points = document.querySelectorAll('.moon-menu-point');
-    let childItems = document.querySelectorAll('.moon-menu-item');
-    if (items.classList.contains('active')) {
-      points[0].setAttribute("cx", "-.8rem");
-      points[0].setAttribute("cy", "0");
-      points[2].setAttribute("cx", ".8rem");
-      points[2].setAttribute("cy", "0");
-      for (let i = 0; i < childItems.length; i++) {
-        childItems[i].style.top = -3 - 3 * i + 'rem';
-        childItems[i].style.opacity = .9;
-      }
-    } else {
-      points[0].setAttribute("cx", "0");
-      points[0].setAttribute("cy", "-.8rem");
-      points[2].setAttribute("cx", "0");
-      points[2].setAttribute("cy", ".8rem");
-      for (let i = 0; i < childItems.length; i++) {
-        childItems[i].style.top = '1rem';
-        childItems[i].style.opacity = 0;
-      }
-    }
-  };
-
-  const back2top = () => {
-    window.scroll({ top: 0, behavior: 'smooth' });
-  }
-
-  const back2bottom = () => {
-    let offsetHeight = document.documentElement.offsetHeight;
-    let scrollHeight = document.documentElement.scrollHeight;
-    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
-  }
-
-</script>

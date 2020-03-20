@@ -9,37 +9,53 @@ const ejs = require('ejs');
 
 const cache = new Cache();
 
-const config = Object.assign({
-  back2top: {
-    enable: true,
-    icon: 'fa fa-chevron-up',
-    func: 'back2top',
-    order: -1
-  },
-  back2bottom: {
-    enable: true,
-    icon: 'fa fa-chevron-down',
-    func: 'back2bottom',
-    order: '-2'
-  }
-}, hexo.config.moon_menu);
-
-const moonMenuArr = Object.keys(config)
-  .map(key => config[key])
-  .map(item => {
-    item.order = item.order || 0;
-    if (item.enable === undefined) {
-      item.enable = true;
+hexo.extend.filter.register('after_init', () => {
+  const faInline = hexo.extend.helper.get('fa_inline');
+  const fa = css => {
+    if (!faInline) {
+      return `<i class='${css}'></i>`;
     }
-    return item;
-  })
-  .filter(item => item.enable)
-  .sort((a, b) => a.order - b.order);
+    const data = css.split(' ');
+    return faInline(data[1].substring(3), {prefix: data[0]});
+  };
 
-injector.register('style', join(__dirname, 'assets/moon-menu.styl'));
-injector.register('bodyEnd', () => {
-  return cache.apply('cache', () => {
-    const template = fs.readFileSync(join(__dirname, 'assets/moon-menu.ejs')).toString();
-    return ejs.render(template, { menus: moonMenuArr });
+  const config = Object.assign({
+    back2top: {
+      enable: true,
+      icon: 'fa fa-chevron-up',
+      func: 'back2top',
+      order: -1
+    },
+    back2bottom: {
+      enable: true,
+      icon: 'fa fa-chevron-down',
+      func: 'back2bottom',
+      order: '-2'
+    }
+  }, hexo.config.moon_menu);
+
+  const moonMenuArr = Object.keys(config)
+    .map(key => config[key])
+    .map(item => {
+      item.order = item.order || 0;
+      if (item.enable === undefined) {
+        item.enable = true;
+      }
+      return item;
+    })
+    .filter(item => item.enable)
+    .map(item => {
+      item.icon = fa(item.icon);
+      return item;
+    })
+    .sort((a, b) => a.order - b.order);
+
+  injector.register('style', join(__dirname, 'assets/moon-menu.styl'));
+  injector.register('js', fs.readFileSync(join(__dirname, 'assets/moon-menu.js')).toString());
+  injector.register('bodyEnd', () => {
+    return cache.apply('cache', () => {
+      const template = fs.readFileSync(join(__dirname, 'assets/moon-menu.ejs')).toString();
+      return ejs.render(template, { menus: moonMenuArr });
+    });
   });
-});
+}, 1);
