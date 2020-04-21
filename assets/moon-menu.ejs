@@ -6,19 +6,14 @@
     </div>
     <% }); %>
   </div>
-  <div class="moon-menu-button" onclick="moonMenuClick()">
-    <svg class="moon-menu-svg">
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
       <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
       <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
-      <g class="moon-menu-points">
-        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
-        <circle class="moon-menu-point" r=".2rem"></circle>
-        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
-      </g>
     </svg>
-    <div class="moon-menu-icon">
-    </div>
-    <div class="moon-menu-text">
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><%- icon -%></div>
+      <div class="moon-menu-text"></div>
     </div>
   </div>
 </div>

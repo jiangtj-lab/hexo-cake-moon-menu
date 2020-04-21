@@ -11,15 +11,15 @@
     let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
     if (percent > 100) percent = 100;
 
+    const menuIcon = document.querySelector('.moon-menu-icon');
     const menuText = document.querySelector('.moon-menu-text');
-    const menuPoints = document.querySelector('.moon-menu-points');
     if (!percent) {
       percent = 0;
+      menuIcon.style.display = 'block';
       menuText.style.display = 'none';
-      menuPoints.style.display = 'block';
     } else {
+      menuIcon.style.display = 'none';
       menuText.style.display = 'block';
-      menuPoints.style.display = 'none';
       menuText.innerHTML = percent + '%';
     }
 
@@ -33,34 +33,25 @@
   });
   window.addEventListener('scroll', moonMenuListener);
 
-})(window, document);
+  document.querySelector('.moon-menu-button').addEventListener('click', () => {
+    document.querySelector('.moon-menu-icon').classList.toggle('active');
+    const items = document.querySelector('.moon-menu-items');
+    items.classList.toggle('active');
+    const childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'em';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1em';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  });
 
-// eslint-disable-next-line no-unused-vars
-var moonMenuClick = function() {
-  const items = document.querySelector('.moon-menu-items');
-  items.classList.toggle('active');
-  const points = document.querySelectorAll('.moon-menu-point');
-  const childItems = document.querySelectorAll('.moon-menu-item');
-  if (items.classList.contains('active')) {
-    points[0].setAttribute('cx', '-.8rem');
-    points[0].setAttribute('cy', '0');
-    points[2].setAttribute('cx', '.8rem');
-    points[2].setAttribute('cy', '0');
-    for (let i = 0; i < childItems.length; i++) {
-      childItems[i].style.top = -3 - 3 * i + 'rem';
-      childItems[i].style.opacity = .9;
-    }
-  } else {
-    points[0].setAttribute('cx', '0');
-    points[0].setAttribute('cy', '-.8rem');
-    points[2].setAttribute('cx', '0');
-    points[2].setAttribute('cy', '.8rem');
-    for (let i = 0; i < childItems.length; i++) {
-      childItems[i].style.top = '1rem';
-      childItems[i].style.opacity = 0;
-    }
-  }
-};
+})(window, document);
 
 // eslint-disable-next-line no-unused-vars
 var back2top = () => {

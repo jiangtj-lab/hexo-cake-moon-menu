@@ -22,13 +22,13 @@ hexo.extend.filter.register('after_init', () => {
   const config = Object.assign({
     back2top: {
       enable: true,
-      icon: 'fa fa-chevron-up',
+      icon: 'fas fa-chevron-up',
       func: 'back2top',
       order: -1
     },
     back2bottom: {
       enable: true,
-      icon: 'fa fa-chevron-down',
+      icon: 'fas fa-chevron-down',
       func: 'back2bottom',
       order: '-2'
     }
@@ -55,7 +55,7 @@ hexo.extend.filter.register('after_init', () => {
   injector.register('bodyEnd', () => {
     return cache.apply('cache', () => {
       const template = fs.readFileSync(join(__dirname, 'assets/moon-menu.ejs')).toString();
-      return ejs.render(template, { menus: moonMenuArr });
+      return ejs.render(template, { icon: fa('fas fa-ellipsis-v'), menus: moonMenuArr });
     });
   });
 }, 1);

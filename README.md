@@ -5,8 +5,8 @@ This plugin from [hexo-theme-inside](https://github.com/ike-c/hexo-theme-inside)
 **If you've come here from my post, check out the [1.x](https://github.com/jiangtj-lab/hexo-cake-moon-menu/tree/1.x) branch code.**
 
 ![npm](https://img.shields.io/npm/v/hexo-cake-moon-menu.svg)
-[![Theme](https://img.shields.io/badge/Theme-NexT(Pisces&Gemini):7.3.0-blue.svg)](https://theme-next.org)
-[![Theme](https://img.shields.io/badge/Theme-Cake:1.1.0-blue.svg)](https://github.com/jiangtj/hexo-theme-cake)
+[![Theme](https://img.shields.io/badge/Theme-NexT(Pisces&Gemini):7.8.0-blue.svg)](https://theme-next.org)
+[![Theme](https://img.shields.io/badge/Theme-Cake:2.0.0-blue.svg)](https://github.com/jiangtj/hexo-theme-cake)
 
 # Preview
 ![image](https://user-images.githubusercontent.com/15902347/61098652-41f0ee80-a492-11e9-9c75-bb8fad0aa058.png)
