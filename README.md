@@ -5,7 +5,7 @@ This plugin from [hexo-theme-inside](https://github.com/ike-c/hexo-theme-inside)
 **If you've come here from my post, check out the [1.x](https://github.com/jiangtj-lab/hexo-cake-moon-menu/tree/1.x) branch code.**
 
 ![npm](https://img.shields.io/npm/v/hexo-cake-moon-menu.svg)
-[![Theme](https://img.shields.io/badge/Theme-NexT(Pisces&Gemini):7.8.0-blue.svg)](https://theme-next.org)
+[![Theme](https://img.shields.io/badge/Theme-NexT(Pisces&Gemini):7.9.0-blue.svg)](https://theme-next.org)
 [![Theme](https://img.shields.io/badge/Theme-Cake:2.0.0-blue.svg)](https://github.com/jiangtj/hexo-theme-cake)
 
 # Preview
@@ -20,6 +20,12 @@ This plugin from [hexo-theme-inside](https://github.com/ike-c/hexo-theme-inside)
 yarn add hexo-cake-moon-menu
 ```
 
+If you are using NexT theme version 7.8 or earlier, install version 2.1.2
+
+```bash
+yarn add hexo-cake-moon-menu@2.1.2
+```
+
 ## Config
 
 In hexo `_config.yml` (here is default config, if don't change it, nothing need to append)
@@ -28,12 +34,12 @@ In hexo `_config.yml` (here is default config, if don't change it, nothing need 
 moon_menu:
   back2top:
     enable: true
-    icon: fa fa-chevron-up
+    icon: fas fa-chevron-up
     func: back2top
     order: -1
   back2bottom:
     enable: true
-    icon: fa fa-chevron-down
+    icon: fas fa-chevron-down
     func: back2bottom
     order: -2
 ```
