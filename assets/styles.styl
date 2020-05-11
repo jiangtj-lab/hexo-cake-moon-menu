@@ -14,12 +14,12 @@
 }
 
 .moon-menu-cricle {
-  fill: #607d8b;
+  fill: var(--moon-cricle, #607d8b);
   opacity: .9;
 }
 
 .moon-menu-border {
-  stroke: #607d8b;
+  stroke: var(--moon-cricle, #607d8b);
   opacity: .9;
   stroke-width: 1px;
   fill: none;
@@ -30,7 +30,7 @@
 .moon-menu-icon{
   font-size: 2.5em;
   line-height: 1.6em;
-  color: white;
+  color: var(--color, #fff);
   text-align: center;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .moon-menu-text {
-  color: white;
+  color: var(--color, #fff);
   font-weight: 400;
   text-align: center;
   line-height: 3.2em;
@@ -58,7 +58,7 @@
   width: 2.5em;
   height: 2.5em;
   border-radius: 50%;
-  background-color: #000;
+  background-color: var(--moon-item-bg-color, #000);
   opacity: 0;
   display: block;
   //display: none;
@@ -66,6 +66,6 @@
   z-index: -1;
   text-align: center;
   line-height: 2.5em;
-  color: white;
+  color: var(--color, #fff);
   cursor: pointer;
 }
