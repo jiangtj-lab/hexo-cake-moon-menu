@@ -50,8 +50,8 @@ hexo.extend.filter.register('after_init', () => {
     })
     .sort((a, b) => a.order - b.order);
 
-  injector.register('variable', join(__dirname, 'assets/variables.styl'));
-  injector.register('style', join(__dirname, 'assets/styles.styl'));
+  injector.register('variable', join(__dirname, 'assets/variables.css'));
+  injector.register('style', join(__dirname, 'assets/styles.css'));
   injector.register('js', fs.readFileSync(join(__dirname, 'assets/moon-menu.js')).toString());
   injector.register('bodyEnd', () => {
     return cache.apply('cache', () => {
