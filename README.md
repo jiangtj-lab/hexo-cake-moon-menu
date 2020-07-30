@@ -65,7 +65,7 @@ injector.register('js', path.resolve(hexo.base_dir, 'views/gitter.js'));
 ```
 
 2. In `${hexo-dir}/views/gitter.js`, create custom function
-```html
+```js
 let openGitter = function() {};
 document.addEventListener('gitter-sidecar-instance-started', e => {
   openGitter = () => {
@@ -86,21 +86,6 @@ moon_menu:
 ## Other themes
 
 If you're not a user of the NexT or Cake theme, don't worry, you can still use the plug-in, but you'll need to do some extra configuration
-
-You need to configure some for the [hexo-extend-injector2](https://github.com/jiangtj/hexo-extend-injector2) plugin.
-
-- [environmental requirements](https://github.com/jiangtj/hexo-extend-injector2/issues/5)
-- config stylus renderer, if theme don't support stylus helper.
-- add fontawesome, if not exist.
-
-Here are the actions for the default theme
-
-Add config
-```yml
-injector2:
-  stylus:
-    enable: true
-```
 
 In `${hexo-or-theme-dir}/scripts/any.js`
 ```js
