@@ -56,7 +56,7 @@ const path = require('path');
 const injector = require('hexo-extend-injector2')(hexo);
 injector.register('body-end', `<script>
 ((window.gitter = {}).chat = {}).options = {
-  room: 'jiangtj/Lobby',
+  room: 'your-room-name',
   activationElement: false
 };
 </script>`);
