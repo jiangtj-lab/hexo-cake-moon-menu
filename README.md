@@ -85,7 +85,7 @@ moon_menu:
 
 ## Other themes
 
-If you're not a user of the NexT or Cake theme, don't worry, you can still use the plug-in, but you'll need to do some extra configuration
+If you're not a user of the NexT or Cake theme, don't worry, you can still use this plug-in, and you just need to add fontawesome to your blog.
 
 In `${hexo-or-theme-dir}/scripts/any.js`
 ```js
@@ -95,3 +95,18 @@ injector.register('head-end', {
   value: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" crossorigin="anonymous">'
 });
 ```
+
+Another way is to use the hexo-fontawesome plugin, this can make your style file smaller.
+
+```bash
+yarn add hexo-fontawesome
+```
+
+In `${hexo-or-theme-dir}/scripts/any.js`
+
+```js
+const { dom } = require('@fortawesome/fontawesome-svg-core');
+const injector = require('hexo-extend-injector2')(hexo);
+injector.register('style', dom.css());
+```
+
