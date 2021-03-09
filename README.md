@@ -35,12 +35,10 @@ moon_menu:
   back2top:
     enable: true
     icon: fas fa-chevron-up
-    func: back2top
     order: -1
   back2bottom:
     enable: true
     icon: fas fa-chevron-down
-    func: back2bottom
     order: -2
 ```
 
@@ -50,7 +48,14 @@ It's easy to add new button in `moon-menu`.
 
 Here's an example about add gitter sidecar.
 
-1.  In `${hexo-dir}/scripts/any.js`, Add custom head
+1. Add config
+```yml
+moon_menu:
+  chat:
+    icon: fa fa-comments
+```
+
+2.  In `${hexo-dir}/scripts/any.js`, Add custom head
 ```js
 const path = require('path');
 const injector = require('hexo-extend-injector2')(hexo);
@@ -61,26 +66,17 @@ injector.register('body-end', `<script>
 };
 </script>`);
 injector.register('body-end', '<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>');
-injector.register('js', path.resolve(hexo.base_dir, 'views/gitter.js'));
+injector.register('js', path.resolve(hexo.base_dir, 'any/gitter.js'));
 ```
 
-2. In `${hexo-dir}/views/gitter.js`, create custom function
+3. In `${hexo-dir}/any/gitter.js`, create custom function
 ```js
-let openGitter = function() {};
 document.addEventListener('gitter-sidecar-instance-started', e => {
-  openGitter = () => {
+  // every button has it's id such as #moon-menu-item-<key>
+  document.querySelector('#moon-menu-item-chat').addEventListener('click', () => {
     e.detail.chat.toggleChat(true);
   };
 });
-
-```
-
-3. Add config
-```yml
-moon_menu:
-  chat:
-    icon: fa fa-comments
-    func: openGitter
 ```
 
 ## Other themes

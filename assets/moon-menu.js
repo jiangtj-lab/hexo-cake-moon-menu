@@ -51,16 +51,21 @@
     }
   });
 
+  const addClickListener = (id, call) => {
+    const item = document.querySelector(id);
+    if (item) {
+      item.addEventListener('click', call);
+    }
+  };
+
+  addClickListener('#moon-menu-item-back2top', () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  });
+
+  addClickListener('#moon-menu-item-back2bottom', () => {
+    const offsetHeight = document.documentElement.offsetHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: scrollHeight - offsetHeight, behavior: 'smooth' });
+  });
+
 })(window, document);
-
-// eslint-disable-next-line no-unused-vars
-var back2top = () => {
-  window.scroll({ top: 0, behavior: 'smooth' });
-};
-
-// eslint-disable-next-line no-unused-vars
-var back2bottom = () => {
-  const offsetHeight = document.documentElement.offsetHeight;
-  const scrollHeight = document.documentElement.scrollHeight;
-  window.scroll({ top: scrollHeight - offsetHeight, behavior: 'smooth' });
-};

@@ -1,7 +1,7 @@
 <div class="moon-menu">
   <div class="moon-menu-items">
     <% menus.forEach(item => { %>
-    <div class="moon-menu-item" onclick="<%= item.func %>()">
+    <div id="moon-menu-item-<%= item.id %>" class="moon-menu-item"<% if (item.func) { %> onclick="<%= item.func %>()"<% } %>>
       <%- item.icon -%>
     </div>
     <% }); %>

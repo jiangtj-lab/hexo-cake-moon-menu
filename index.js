@@ -23,19 +23,21 @@ hexo.extend.filter.register('after_init', () => {
     back2top: {
       enable: true,
       icon: 'fas fa-chevron-up',
-      func: 'back2top',
       order: -1
     },
     back2bottom: {
       enable: true,
       icon: 'fas fa-chevron-down',
-      func: 'back2bottom',
       order: '-2'
     }
   }, hexo.config.moon_menu);
 
   const moonMenuArr = Object.keys(config)
-    .map(key => config[key])
+    .map(key => {
+      const val = config[key];
+      val.id = val.id || key;
+      return val;
+    })
     .map(item => {
       item.order = item.order || 0;
       if (item.enable === undefined) {
