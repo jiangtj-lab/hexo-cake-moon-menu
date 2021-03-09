@@ -79,18 +79,9 @@ document.addEventListener('gitter-sidecar-instance-started', e => {
 
 ## Other themes
 
-If you're not a user of the NexT or Cake theme, don't worry, you can still use this plug-in, and you just need to add fontawesome to your blog.
+If you're not a user of the NexT or Cake theme, don't worry, you can still use this plug-in, just add fontawesome to your blog. We provide three scheme that you can choose.
 
-In `${hexo-or-theme-dir}/scripts/any.js`
-```js
-const injector = require('hexo-extend-injector2')(hexo);
-// add fontawesome
-injector.register('head-end', {
-  value: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" crossorigin="anonymous">'
-});
-```
-
-Another way is to use the hexo-fontawesome plugin, this can make your style file smaller.
+### Scheme one
 
 ```bash
 yarn add hexo-fontawesome
@@ -104,3 +95,17 @@ const injector = require('hexo-extend-injector2')(hexo);
 injector.register('style', dom.css());
 ```
 
+### Scheme two
+
+In `${hexo-or-theme-dir}/scripts/any.js`
+```js
+const injector = require('hexo-extend-injector2')(hexo);
+// add fontawesome
+injector.register('head-end', {
+  value: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" crossorigin="anonymous">'
+});
+```
+
+### Scheme three
+
+Add fontawesome.css in your theme layout
