@@ -23,11 +23,11 @@
   "homepage": "https://github.com/jiangtj-lab/hexo-cake-moon-menu#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "hexo-extend-injector2": "^0.2.4",
+    "hexo-extend-injector2": "^0.3.0",
     "hexo-util": "^2.4.0"
   },
   "devDependencies": {
-    "eslint": "^7.21.0",
+    "eslint": "^7.22.0",
     "eslint-config-hexo": "^4.1.0",
     "stylelint": "^13.12.0",
     "stylelint-config-standard": "^21.0.0"
