@@ -52,7 +52,19 @@ hexo.extend.filter.register('after_init', () => {
     })
     .sort((a, b) => a.order - b.order);
 
-  injector.register('variable', join(__dirname, 'assets/variables.css'));
+  const light = fs.readFileSync(join(__dirname, 'assets/light.css')).toString();
+  const dark = fs.readFileSync(join(__dirname, 'assets/dark.css')).toString();
+  injector.register('variable', () => {
+    return `${light}@media (prefers-color-scheme: dark) {${dark}}`;
+  });
+  injector.register('variable', {
+    env: 'light',
+    value: light
+  });
+  injector.register('variable', {
+    env: 'dark',
+    value: dark
+  });
   injector.register('style', join(__dirname, 'assets/styles.css'));
   injector.register('js', fs.readFileSync(join(__dirname, 'assets/moon-menu.js')).toString());
   injector.register('bodyEnd', () => {
